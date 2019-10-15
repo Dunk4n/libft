@@ -13,46 +13,22 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static t_list	*ft_list_last(t_list *begin_list)
-{
-	if (!begin_list)
-		return (NULL);
-	while (begin_list->next)
-		begin_list = begin_list->next;
-	return (begin_list);
-}
-
-static void		ft_lstaddback(t_list **alst, t_list *new)
-{
-	t_list	*end;
-
-	if (!alst)
-		return ;
-	if (!*alst)
-	{
-		*alst = new;
-		return ;
-	}
-	end = ft_list_last(*alst);
-	if (!end)
-		return ;
-	end->next = new;
-}
-
-t_list			*ft_lstmap(t_list *lst, void *(f)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(f)(void *))
 {
 	t_list	*new;
 	t_list	*tmp;
 
-	while (lst)
+	if (!lst || !f)
+		return (NULL);
+	if (!(tmp = ft_lstnew(f(lst->content))))
+		return (NULL);
+	new = tmp;
+	while (lst->next)
 	{
-		tmp = malloc(sizeof(t_list));
-		if (!tmp)
-			return (NULL);
-		tmp->content = f(lst->content);
-		tmp->next = NULL;
-		ft_lstaddback(&new, tmp);
 		lst = lst->next;
+		if (!(tmp->next = ft_lstnew(f(lst->content))))
+			return (NULL);
+		tmp = tmp->next;
 	}
 	return (new);
 }
