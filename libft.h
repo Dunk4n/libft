@@ -6,12 +6,14 @@
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 12:22:41 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/12 11:28:37 by niduches         ###   ########.fr       */
+/*   Updated: 2019/10/16 16:49:58 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# include <stdlib.h>
 
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);

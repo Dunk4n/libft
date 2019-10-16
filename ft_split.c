@@ -6,70 +6,76 @@
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 09:15:31 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/10 19:59:15 by niduches         ###   ########.fr       */
+/*   Updated: 2019/10/16 13:21:32 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static int	cnt_word(char *str, char c)
+static int	get_nb(char const *s, char c)
 {
-	int	i;
 	int	nb;
+	int	i;
 
 	nb = 0;
-	if (str[0] && str[0] != c)
-		nb++;
-	i = 1;
-	while (str[i])
+	i = 0;
+	while (s[i])
 	{
-		if (str[i] != c && str[i - 1] == c)
+		if (s[i] != c && (i == 0 || (s[i - 1] == c)))
 			nb++;
 		i++;
 	}
 	return (nb);
 }
 
-static int	fill_up_array(char *str, char c, char **array, int *j)
+static char	*fill_in(char **line, char const *s, int *i, char c)
 {
-	int		k;
+	int	j;
 
-	while (str[*j] && str[*j] == c)
-		(*j)++;
-	k = 0;
-	while (str[*j + k] && str[*j + k] != c)
-		k++;
-	if (!(*array = malloc(sizeof(char) * (k + 1))))
-		return (1);
-	k = 0;
-	while (str[*j] && str[*j] != c)
-		(*array)[k++] = str[(*j)++];
-	(*array)[k] = '\0';
-	return (0);
+	j = 0;
+	while (c && s[*i] == c)
+		(*i)++;
+	j = 0;
+	while (s[*i + j] && s[*i + j] != c)
+		j++;
+	if (!(*line = malloc((j + 1) * sizeof(char))))
+		return (NULL);
+	j = 0;
+	while (s[*i + j] && s[*i + j] != c)
+	{
+		(*line)[j] = s[*i + j];
+		j++;
+	}
+	(*line)[j] = '\0';
+	*i += j;
+	return (*line);
 }
 
 char		**ft_split(char const *s, char c)
 {
 	int		i;
-	int		j;
-	int		nb_word;
+	int		word;
+	int		nb;
 	char	**array;
 
 	if (!s)
 		return (NULL);
-	nb_word = cnt_word((char*)s, c);
-	if (!(array = malloc(sizeof(char*) * (nb_word + 1))))
+	nb = get_nb(s, c);
+	if (!(array = malloc((nb + 1) * sizeof(char*))))
 		return (NULL);
 	i = 0;
-	j = 0;
-	while (i < nb_word)
-		if (fill_up_array((char*)s, c, &array[i++], &j))
+	word = 0;
+	while (word < nb)
+	{
+		if (!(array[word] = fill_in(array + word, s, &i, c)))
 		{
-			while (--i > 0)
-				free(array[i - 1]);
+			while (--word >= 0)
+				free(array[word]);
 			free(array);
 			return (NULL);
 		}
-	array[i] = NULL;
+		word++;
+	}
+	array[word] = NULL;
 	return (array);
 }
