@@ -6,7 +6,7 @@
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 09:00:32 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/16 14:05:59 by niduches         ###   ########.fr       */
+/*   Updated: 2019/10/16 19:18:39 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ char		*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1)
 		return (NULL);
-	j = 0;
-	while (s1[j])
-		j++;
-	while (j - 1 >= 0 && is_set(s1[j - 1], set))
-		j--;
 	i = 0;
 	while (s1[i] && is_set(s1[i], set))
 		i++;
+	j = 0;
+	while (s1[j])
+		j++;
+	while (j >= i && j - 1 >= 0 && is_set(s1[j - 1], set))
+		j--;
 	if (!(str = malloc(((j > 0) ? j - i + 1 : 1) * sizeof(char))))
 		return (NULL);
 	k = 0;
