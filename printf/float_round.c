@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   float_round.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 09:39:59 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/10 14:20:56 by niduches         ###   ########.fr       */
+/*   Created: 2019/10/28 14:27:39 by niduches          #+#    #+#             */
+/*   Updated: 2019/10/28 14:29:04 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include <stdarg.h>
+#include <unistd.h>
+#include <float.h>
+#include "printf.h"
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+double	float_round(double nb, int *flags, int round)
 {
-	if (!new || !alst)
-		return ;
-	new->next = *alst;
-	*alst = new;
+	double	dec;
+	size_t	i;
+	size_t	len;
+
+	if (!round)
+		return (nb);
+	dec = (nb < 0) ? -0.5 : 0.5;
+	len = 0;
+	i = (flags[2] == -1) ? 6 : flags[2];
+	while (len++ < i)
+		dec /= 10;
+	nb += dec;
+	return (nb);
 }

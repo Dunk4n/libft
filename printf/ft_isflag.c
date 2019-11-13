@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft_isflag.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 15:06:30 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/10 15:07:12 by niduches         ###   ########.fr       */
+/*   Created: 2019/10/12 13:02:49 by niduches          #+#    #+#             */
+/*   Updated: 2019/10/19 16:12:27 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		my_is_prime(int nb)
-{
-	int i;
+#include <stdlib.h>
+#include "printf.h"
 
-	i = 2;
-	if (nb < 2)
-		return (0);
-	while (i <= nb / i)
+int		ft_isflag(char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (FLAGS[i])
 	{
-		if (nb % i == 0)
-			return (0);
+		if (c == FLAGS[i])
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }

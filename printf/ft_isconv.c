@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_find_prime_sup.c                                :+:      :+:    :+:   */
+/*   ft_isconv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 15:12:35 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/10 15:14:42 by niduches         ###   ########.fr       */
+/*   Created: 2019/10/12 14:03:10 by niduches          #+#    #+#             */
+/*   Updated: 2019/10/21 13:09:14 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	my_prime(int nb)
-{
-	int i;
+#include <stdlib.h>
+#include "printf.h"
 
-	i = 2;
-	if (nb < 2)
-		return (0);
-	while (i <= nb / i)
-	{
-		if (nb % i == 0)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int			my_find_prime_sup(int nb)
+int		ft_isconv(char c)
 {
-	int i;
+	size_t	i;
 
 	i = 0;
-	while (my_prime(nb + i) == 0)
+	while (CONVERSIONS[i])
+	{
+		if (c == CONVERSIONS[i])
+			return (1);
 		i++;
-	return (nb + i);
+	}
+	return (0);
 }
