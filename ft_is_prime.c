@@ -6,11 +6,11 @@
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:06:30 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/10 15:07:12 by niduches         ###   ########.fr       */
+/*   Updated: 2019/12/01 22:13:00 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		my_is_prime(int nb)
+int		ft_is_prime(int nb)
 {
 	int i;
 

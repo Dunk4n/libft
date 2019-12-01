@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_find_prime_sup.c                                :+:      :+:    :+:   */
+/*   ft_find_prime_sup.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 15:12:35 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/10 15:14:42 by niduches         ###   ########.fr       */
+/*   Created: 2019/12/01 22:12:29 by niduches          #+#    #+#             */
+/*   Updated: 2019/12/01 22:12:49 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	my_prime(int nb)
+static int	ft_prime(int nb)
 {
 	int i;
 
@@ -26,12 +26,12 @@ static int	my_prime(int nb)
 	return (1);
 }
 
-int			my_find_prime_sup(int nb)
+int			ft_find_prime_sup(int nb)
 {
 	int i;
 
 	i = 0;
-	while (my_prime(nb + i) == 0)
+	while (ft_prime(nb + i) == 0)
 		i++;
 	return (nb + i);
 }
