@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_isconv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 09:40:31 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/10 14:21:24 by niduches         ###   ########.fr       */
+/*   Created: 2019/10/12 14:03:10 by niduches          #+#    #+#             */
+/*   Updated: 2019/10/21 13:09:14 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include "printf.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int		ft_isconv(char c)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	size_t	i;
+
+	i = 0;
+	while (CONVERSIONS[i])
+	{
+		if (c == CONVERSIONS[i])
+			return (1);
+		i++;
+	}
+	return (0);
 }

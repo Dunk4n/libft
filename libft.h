@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <stdarg.h>
 
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
@@ -66,5 +67,13 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(f)(void *));
+
+int				ft_printf(const char *str, ...);
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4096
+# endif
+
+int		get_next_line(int fd, char **line);
 
 #endif

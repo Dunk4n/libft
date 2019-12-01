@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_isflag.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 09:39:59 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/10 14:20:56 by niduches         ###   ########.fr       */
+/*   Created: 2019/10/12 13:02:49 by niduches          #+#    #+#             */
+/*   Updated: 2019/10/19 16:12:27 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include "printf.h"
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+int		ft_isflag(char c)
 {
-	if (!new || !alst)
-		return ;
-	new->next = *alst;
-	*alst = new;
+	size_t	i;
+
+	i = 0;
+	while (FLAGS[i])
+	{
+		if (c == FLAGS[i])
+			return (1);
+		i++;
+	}
+	return (0);
 }

@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   float_round.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 15:06:30 by niduches          #+#    #+#             */
-/*   Updated: 2019/12/01 22:13:00 by niduches         ###   ########.fr       */
+/*   Created: 2019/10/28 14:27:39 by niduches          #+#    #+#             */
+/*   Updated: 2019/10/28 14:29:04 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_prime(int nb)
-{
-	int i;
+#include <stdlib.h>
+#include <stdarg.h>
+#include <unistd.h>
+#include <float.h>
+#include "printf.h"
 
-	i = 2;
-	if (nb < 2)
-		return (0);
-	while (i <= nb / i)
-	{
-		if (nb % i == 0)
-			return (0);
-		i++;
-	}
-	return (1);
+double	float_round(double nb, int *flags, int round)
+{
+	double	dec;
+	size_t	i;
+	size_t	len;
+
+	if (!round)
+		return (nb);
+	dec = (nb < 0) ? -0.5 : 0.5;
+	len = 0;
+	i = (flags[2] == -1) ? 6 : flags[2];
+	while (len++ < i)
+		dec /= 10;
+	nb += dec;
+	return (nb);
 }
