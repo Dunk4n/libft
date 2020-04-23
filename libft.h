@@ -6,7 +6,7 @@
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 12:22:41 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/16 16:49:58 by niduches         ###   ########.fr       */
+/*   Updated: 2020/04/23 10:36:15 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+char			*my_strncpy(char *dest, char const *src, int n);
 
 typedef struct	s_list
 {
