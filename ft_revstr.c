@@ -6,11 +6,11 @@
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 14:57:05 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/10 15:23:08 by niduches         ###   ########.fr       */
+/*   Updated: 2019/12/01 22:13:26 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*my_revstr(char *str)
+char	*ft_revstr(char *str)
 {
 	int		i;
 	int		len;

@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnstr.c                                       :+:      :+:    :+:   */
+/*   ft_find_prime_sup.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/01 22:17:07 by niduches          #+#    #+#             */
-/*   Updated: 2019/12/01 22:17:52 by niduches         ###   ########.fr       */
+/*   Created: 2019/12/01 22:12:29 by niduches          #+#    #+#             */
+/*   Updated: 2019/12/01 22:12:49 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-
-size_t	ft_putnstr(const char *str, size_t n)
+static int	ft_prime(int nb)
 {
-	size_t	i;
+	int i;
 
-	if (!str || !n)
+	i = 2;
+	if (nb < 2)
 		return (0);
-	i = 0;
-	while (str[i] && i < n)
+	while (i <= nb / i)
+	{
+		if (nb % i == 0)
+			return (0);
 		i++;
-	write(1, str, i);
-	return (i);
+	}
+	return (1);
+}
+
+int			ft_find_prime_sup(int nb)
+{
+	int i;
+
+	i = 0;
+	while (ft_prime(nb + i) == 0)
+		i++;
+	return (nb + i);
 }

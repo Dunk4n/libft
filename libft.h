@@ -6,7 +6,7 @@
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 12:22:41 by niduches          #+#    #+#             */
-/*   Updated: 2020/04/23 10:36:15 by niduches         ###   ########.fr       */
+/*   Updated: 2020/04/23 10:42:35 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+<<<<<<< HEAD
 char			*my_strncpy(char *dest, char const *src, int n);
 
 typedef struct	s_list
@@ -68,6 +69,7 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(f)(void *));
+int				ft_strcmp(char const *s1, char const *s2);
 
 int				ft_printf(const char *str, ...);
 
@@ -75,6 +77,6 @@ int				ft_printf(const char *str, ...);
 #  define BUFFER_SIZE 4096
 # endif
 
-int		get_next_line(int fd, char **line);
+int				get_next_line(int fd, char **line);
 
 #endif

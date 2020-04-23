@@ -6,11 +6,11 @@
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 14:59:29 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/10 15:04:25 by niduches         ###   ########.fr       */
+/*   Updated: 2019/12/01 22:13:36 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*my_strcat(char *dest, char const *src)
+char	*ft_strcat(char *dest, char const *src)
 {
 	int	len;
 	int i;

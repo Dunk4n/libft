@@ -6,11 +6,11 @@
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:05:40 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/10 15:05:41 by niduches         ###   ########.fr       */
+/*   Updated: 2019/12/01 22:13:47 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		my_strcmp(char const *s1, char const *s2)
+int		ft_strcmp(char const *s1, char const *s2)
 {
 	int i;
 

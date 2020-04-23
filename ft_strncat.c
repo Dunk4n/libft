@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: niduches <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 15:18:33 by niduches          #+#    #+#             */
-/*   Updated: 2019/10/10 15:19:56 by niduches         ###   ########.fr       */
+/*   Created: 2019/12/01 22:13:55 by niduches          #+#    #+#             */
+/*   Updated: 2019/12/01 22:14:01 by niduches         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*my_strncat(char *dest, char const *src, int nb)
+char	*ft_strncat(char *dest, char const *src, int nb)
 {
 	int	len;
 	int	i;
